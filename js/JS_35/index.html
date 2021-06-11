@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 35</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap&subset=cyrillic-ext"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="" />
+
+    <!--defer можно располагать в head или body  -->
+    <!--запускает скрипт в фоновом режиме, который сработает после загрузки DOM -->
+    <script defer src="js/script.js"></script>
+    <!--defer запускает скрипты последовательно, test.js загрузится вторым -->
+    <script defer src="js/test.js"></script>
+  </head>
+  <body>
+    <!--запускает скрипт сразу, не привязан к загрузке DOM -->
+    <script async src="js/script.js"></script>
+    <!--async запускает скрипты одновременно, хз кто загрузится первым -->
+    <script async src="js/test.js"></script>
+    <p>Welcome to JS 35!</p>
+    <p>Async, defer, dinamic scripts</p>
+
+    <!-- <script src="js/script.js"></script> запускает скрипт после прогрузки страницы (использовать с DOMContentLoaded)-->
+  </body>
+</html>
