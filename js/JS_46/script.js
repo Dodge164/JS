@@ -13,19 +13,22 @@ function showThis(a, b) {
 }
 
 showThis(4, 5);
+
 // 2 способ вызова функции
-// если мы используем метод внутри объекта, контекст вызова всегда будет ссылаться на
-// сам объект
+// если мы используем метод внутри объекта, контекст вызова 
+//всегда будет ссылаться на сам объект
 //т.е. Контекст у методов объекта - сам объект
 const obj = {
   a: 20,
   b: 15,
   sum: function () {
     function shout() {
-      console.log(this); // а здесь уже undefined
+      console.log('shout', this); // а здесь уже undefined, не сработало
     }
-    shout();
-    console.log(this);
+    shout.call(obj);
+   //shout();
+
+    console.log('shout2',this); // укажет на объект с a, b и sum
   },
 };
 obj.sum();
@@ -87,7 +90,8 @@ btn.addEventListener("click", (e) => {
 });
 
 // стрелочный вариант функции
-// у нее нет своего контекста вызова, она берет его у родителя, в этом случае на сам объект
+// у нее нет своего контекста вызова, она берет его у родителя,
+//в этом случае на сам объект
 // {num: 5, sayNumber: f}
 const object = {
   num: 5,
@@ -104,10 +108,11 @@ object.sayNumber();
 const object2 = {
   num: 5,
   sayNumber: function () {
-    const say = () => {
+    const test = 6; // этот контекст уже не увидит
+    const say = (num1, num2) => {
       console.log(this.num);
     };
-    say();
+    say(1, 2);
   },
 };
 object2.sayNumber();
